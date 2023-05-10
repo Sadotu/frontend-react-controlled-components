@@ -1,18 +1,28 @@
 import React, {useState} from 'react';
 import './App.css';
+//import { useForm } from "react-hook-form";
 
 const Formulier = () => {
-    const [naam, setNaam] = useState('');
-    const [leeftijd, setLeeftijd] = useState('');
-    const [review, setReview] = useState('');
-    const [nieuwsbrief, setNieuwsbrief] = useState(false);
+    const [ formState, setFormState ] = useState({
+        naam: '',
+        leeftijd: '',
+        review: '',
+        niewsbrief: false
+    })
+
+    function handleChange(event) {
+        const changedFieldName = event.target.name;
+        const newValue = event.target.type === "checkbox" ? event.target.checked : event.target.value;
+
+        setFormState({
+            ...formState,
+            [changedFieldName]: newValue,
+        });
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Naam:', naam);
-        console.log('Leeftijd:', leeftijd);
-        console.log('Review:', review);
-        console.log('Nieuwsbrief:', nieuwsbrief);
+        console.log(formState)
     };
 
     return (
@@ -21,8 +31,9 @@ const Formulier = () => {
                 Naam:
                 <input
                     type="text"
-                    value={naam}
-                    onChange={(e) => setNaam(e.target.value)}
+                    name="naam"
+                    value={formState.naam}
+                    onChange={handleChange}
                 />
             </label>
             <br />
@@ -30,16 +41,18 @@ const Formulier = () => {
                 Leeftijd:
                 <input
                     type="number"
-                    value={leeftijd}
-                    onChange={(e) => setLeeftijd(e.target.value)}
+                    name="leeftijd"
+                    value={formState.leeftijd}
+                    onChange={handleChange}
                 />
             </label>
             <br />
             <label>
                 Jouw Review:
                 <textarea
-                    value={review}
-                    onChange={(e) => setReview(e.target.value)}
+                    name="review"
+                    value={formState.review}
+                    onChange={handleChange}
                 />
             </label>
             <br />
@@ -47,8 +60,8 @@ const Formulier = () => {
                 Inschrijven voor nieuwsbrief:
                 <input
                     type="checkbox"
-                    checked={nieuwsbrief}
-                    onChange={(e) => setNieuwsbrief(e.target.checked)}
+                    checked={formState.nieuwsbrief}
+                    onChange={handleChange}
                 />
             </label>
             <br />
