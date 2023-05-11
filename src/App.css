@@ -1,1 +1,48 @@
-/*Schrijf hier jouw css voor jouw formulier*/
+/* styles.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-section label {
+    margin-bottom: 10px;
+}
+
+.form-section input,
+.form-section textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.nieuwsbrief {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
