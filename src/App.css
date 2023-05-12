@@ -23,8 +23,9 @@
     margin-bottom: 10px;
 }
 
-.form-section input,
-.form-section textarea {
+.form-section input[name="naam"],
+.form-section input[name="leeftijd"],
+.form-section input[name="review"] {
     padding: 5px;
     margin-bottom: 10px;
     width: 100%;
